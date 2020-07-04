@@ -7,3 +7,6 @@
 * Create pickled dict in data/, empty when initiated (M_85.dat).
 * Store URLs in Mongo, and proceed one at the time to extract birthplace.
 * Ex: {"laurent":{"france":81, "spain":2, "switzerland":23}}
+
+* Store and zip?
+* 85% coverage to start (780 names)
