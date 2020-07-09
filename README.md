@@ -10,3 +10,5 @@
 
 * Store and zip?
 * 85% coverage to start (780 names)
+
+* https://fr.wikipedia.org/wiki/Liste_des_pays_du_monde
