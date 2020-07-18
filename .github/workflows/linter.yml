@@ -34,10 +34,17 @@ jobs:
     steps:
       ##########################
       # Checkout the code base #
-      ##########################
       - name: Checkout Code
         uses: actions/checkout@v2
-
+      - name: Install packages
+        run: |
+          sudo apt-get update && sudo apt-get install python3-venv python3 python3-pip python3-setuptools
+      - name: Install dependencies
+        run: |
+          python3 -m venv .venv
+          .venv/bin/pip install -r requirements.txt
+      - name: Move the dependencies
+        run: mv .venv /home/runner/work/_temp/_github_workflow
       ################################
       # Run Linter against code base #
       ################################
@@ -45,5 +52,7 @@ jobs:
         uses: docker://github/super-linter:v3.3.2
         env:
           VALIDATE_ALL_CODEBASE: false
+          PYTHONPATH: "/github/workspace/:\
+            /github/workflow/.venv/lib/python3.8/site-packages"
 
 ...
