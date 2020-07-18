@@ -35,3 +35,15 @@ class TestExtract():
         html = self.e.get_html(url)
         urls = self.e.parse_urls(html)
         assert self.e.get_wikidata_ID(urls) == 'Q188971'
+
+    def test_get_country_from_wikidata(self):
+        country = self.e.get_country_from_wikidata('Q1756086')
+        assert country == 'IT'
+
+    def test_get_country_from_wikidata_bis(self):
+        country = self.e.get_country_from_wikidata('Q188971')
+        assert country == 'FR'
+
+    def test_get_country_from_wikidata_none(self):
+        country = self.e.get_country_from_wikidata('Q46384')
+        assert country is None

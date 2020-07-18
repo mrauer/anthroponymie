@@ -8,7 +8,11 @@ import lxml.html
 class Extract():
 
     def __init__(self):
-        COUNTRIES = {'France': 'http://aaaa'}
+        self.COUNTRIES = {'/wiki/Q38': 'IT',
+                          '/wiki/Q159': 'RU',
+                          '/wiki/Q145': 'GB',
+                          '/wiki/Q869': 'TH',
+                          '/wiki/Q142': 'FR'}
 
     def get_html(self, url):
         """Get HTML from an url."""
@@ -32,6 +36,22 @@ class Extract():
                 continue
         return ret
 
+    def get_country_from_wikidata(self, ID):
+        """Find country code from Wikidata."""
+        ret = None
+        try:
+
+            url = '/'.join(['https://www.wikidata.org/wiki', ID])
+            html = self.get_html(url)
+            urls = self.parse_urls(html)
+
+            for url in urls:
+                if url in self.COUNTRIES:
+                    return self.COUNTRIES[url]
+        except Exception:
+            return ret
+        return ret
+
     def get_countries(self, urls):
         """Get countries from list of urls."""
         pass
@@ -43,8 +63,3 @@ class Extract():
     def save_record(self):
         """Save output into pickled dict."""
         pass
-
-
-# get content
-# convert to wikidata | https://www.wikidata.org/wiki/Q1756086
-# convert to country code
