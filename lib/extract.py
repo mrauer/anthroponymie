@@ -1,7 +1,7 @@
 import os
 import pickle
 from collections import Counter
-from urllib.parse import urlparse
+from urllib.parse import unquote, urlparse
 
 import requests
 
@@ -277,6 +277,7 @@ class Extract():
     def clean_urls(self, urls, name):
         """Only keep url with name in it."""
         _urls = set()
+        urls = [unquote(x) for x in urls]
         for url in urls:
             pattern = ''.join([name.lower(), '_'])
             if url.lower().find(pattern) != -1:

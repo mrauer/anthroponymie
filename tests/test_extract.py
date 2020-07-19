@@ -54,11 +54,6 @@ class TestExtract():
         country = self.e.get_country_from_wikidata('Q46384')
         assert country is None
 
-    @pytest.mark.skip(reason="tested")
-    def test_country_to_id(self):
-        d = self.e.wiki_to_iso()
-        cti = self.e.country_to_id(d)
-        assert len(cti) == 249
 
     def test_url_to_country(self):
         html = self.e.get_html(self.de_url)
@@ -137,3 +132,11 @@ class TestExtract():
         freq = self.e.countries_to_frequency(countries)
         assert freq == {'US': 9, 'FR': 53, 'BE': 1, 'GB': 8, 'CA': 4, 'AR': 2,
                         'RU': 1, 'LK': 1, 'AU': 1, 'ZA': 1, 'BJ': 1}
+
+    @pytest.mark.skip(reason="expensive test")
+    def test_name_to_frequency_accents(self):
+        name = 'RENÉ'
+        urls = self.e.clean_urls(self.urls.get(name), name)
+        countries = self.e.urls_to_countries(urls)
+        freq = self.e.countries_to_frequency(countries)
+        assert freq == {'FR': 65, 'HT': 2, 'CA': 4, 'BE': 4, 'US': 1}
