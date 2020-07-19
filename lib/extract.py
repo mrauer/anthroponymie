@@ -1,3 +1,4 @@
+from collections import Counter
 from urllib.parse import urlparse
 
 import requests
@@ -8,7 +9,6 @@ import lxml.html
 class Extract():
 
     def __init__(self):
-        self.iso_path = '/usr/src/app/data/.iso'
 
         self.COUNTRIES = {
           'Q228': 'AD',
@@ -250,24 +250,6 @@ class Extract():
           'Q954': 'ZW'
         }
 
-    def wiki_to_iso(self):
-        """Populates the COUNTRIES var."""
-        d = dict()
-        value = None
-        with open(self.iso_path) as f:
-            for line in f.readlines():
-                if line.find('/') != -1:
-                    if line.find('ISO_3166-2') == -1:
-                        key = line.replace('\n', '')
-
-                    else:
-                        value = line.replace(
-                            '/wiki/ISO_3166-2:', '').replace('\n', '')
-                if value:
-                    d[key] = value
-                    value = None
-        return d
-
     def country_to_id(self, d):
         """Replace key of dict by country ID."""
         new_d = dict()
@@ -289,6 +271,15 @@ class Extract():
         """Parse urls from content."""
         doc = lxml.html.fromstring(html)
         return doc.xpath('//a/@href')
+
+    def clean_urls(self, urls, name):
+        """Only keep url with name in it."""
+        _urls = set()
+        for url in urls:
+            pattern = ''.join([name.lower(), '_'])
+            if url.lower().find(pattern) != -1:
+                _urls.add(url)
+        return _urls
 
     def get_wikidata_ID(self, urls):
         """Get the structured wikidata ID."""
@@ -323,13 +314,24 @@ class Extract():
         """Convert a list of urls to the corresponding countries."""
         ret = []
         for url in urls:
-            html = self.get_html(url)
-            urls = self.parse_urls(html)
-            ID = self.get_wikidata_ID(urls)
-            country = self.get_country_from_wikidata(ID)
-            ret.append(country)
-            print(' '.join([url, country]))
+            try:
+                html = self.get_html(url)
+                urls = self.parse_urls(html)
+                ID = self.get_wikidata_ID(urls)
+                country = self.get_country_from_wikidata(ID)
+                ret.append(country)
+                print(' '.join([url, country]))
+            except Exception:
+                continue
         return ret
+
+    def countries_to_frequency(self, countries):
+        """Converts list of countries."""
+        d = dict(Counter(countries))
+        if None in d:
+            del d[None]
+        print(d)
+        return d
 
     def save_record(self):
         """Save output into pickled dict."""
