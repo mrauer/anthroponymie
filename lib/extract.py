@@ -1,3 +1,5 @@
+import os
+import pickle
 from collections import Counter
 from urllib.parse import urlparse
 
@@ -333,6 +335,18 @@ class Extract():
         print(d)
         return d
 
-    def save_record(self):
-        """Save output into pickled dict."""
-        pass
+    def save_record(self, d, key, value):
+        """Store output in pickled dict."""
+        if key not in d:
+            d[key] = value
+        output = ''.join(['/usr/src/app/data/FREQUENCY.p'])
+        pickle.dump(d, open(output, 'wb'))
+
+    def open_frequencies(self):
+        """Open a pickled file."""
+        d = dict()
+        output = '/usr/src/app/data/FREQUENCY.p'
+        if os.path.exists(output):
+            d = pickle.load(open(output, 'rb'))
+        print('{} items in FREQUENCY.p'.format(len(d)))
+        return d
