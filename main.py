@@ -36,3 +36,9 @@ if sys.argv[1] == 'countries':
         print('Storing {} {}'.format(k, freq))
         e.save_record(d, k, freq)
         time.sleep(random.randint(20, 55))
+
+# Show data -> python3 main.py show
+if sys.argv[1] == 'show':
+    d = e.open_frequencies()
+    for k, v in d.items():
+        print(' '.join([k, str(v)]))

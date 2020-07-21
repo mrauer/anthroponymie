@@ -54,7 +54,6 @@ class TestExtract():
         country = self.e.get_country_from_wikidata('Q46384')
         assert country is None
 
-
     def test_url_to_country(self):
         html = self.e.get_html(self.de_url)
         urls = self.e.parse_urls(html)
@@ -65,10 +64,6 @@ class TestExtract():
     def test_urls_to_countries(self):
         urls = self.urls.get('EMELINE')
         assert self.e.urls_to_countries(urls) == 1
-
-        # (1) raw data
-        # (2) 'EMELINE:{FR: 92, HT:23, CH:1}'
-        # (3) store to pickled.
 
     def test_countries_to_frequency(self):
         data = ['US', None, 'FR', 'HT', None, None, 'FR', 'FR',

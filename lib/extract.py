@@ -333,6 +333,8 @@ class Extract():
         d = dict(Counter(countries))
         if None in d:
             del d[None]
+        if 'ANDRÉ' in d:
+            del d['ANDRÉ']
         print(d)
         return d
 
