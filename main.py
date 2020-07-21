@@ -2,12 +2,13 @@ import random
 import sys
 import time
 
-from lib import api, subset
+from lib import api, extract, subset
 
 s = subset.Subset()
 w = api.WikiAPI()
+e = extract.Extract()
 
-# get urls
+# Get urls -> python3 main.py urls 0.85
 if len(sys.argv) == 3 and sys.argv[1] == 'urls':
     cutoff = sys.argv[2]
     names = s.open_names(cutoff)
@@ -20,12 +21,24 @@ if len(sys.argv) == 3 and sys.argv[1] == 'urls':
             w.save_record(urls, query, data)
             time.sleep(random.randint(20, 55))
 
-# extract countries
+# Process countries -> python3 main.py countries
 if sys.argv[1] == 'countries':
-    print('in c')
+    urls = w.open_remaining_urls()
 
-# print(sys.argv)
+    d = e.open_frequencies()
+    for k, v in urls.items():
+        print('Processing {}'.format(k))
 
-# urls = w.open_urls()
-# for k, v in urls.items():
-#    print(k +' '+ str(len(v)))
+        urls = e.clean_urls(v, k)
+        countries = e.urls_to_countries(urls)
+        freq = e.countries_to_frequency(countries)
+
+        print('Storing {} {}'.format(k, freq))
+        e.save_record(d, k, freq)
+        time.sleep(random.randint(20, 55))
+
+# Show data -> python3 main.py show
+if sys.argv[1] == 'show':
+    d = e.open_frequencies()
+    for k, v in d.items():
+        print(' '.join([k, str(v)]))
