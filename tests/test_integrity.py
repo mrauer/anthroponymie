@@ -57,7 +57,7 @@ class TestIntegrity():
     def test_count_total_names(self):
         assert sum(self.names.values()) == 72125408
 
-    @pytest.mark.skip(reason="must return 0")
+    # @pytest.mark.skip(reason="must return 0")
     def test_has_no_freq(self):
         d = self.frequencies
         no_data = dict()
@@ -65,6 +65,7 @@ class TestIntegrity():
             if len(v) == 0:
                 no_data[k] = v
         assert no_data == 0
+        # https://en.wikipedia.org/w/api.php?action=opensearch&search=TIMEO&limit=100&namespace=0&format=jsonfm
 
     def test_name_is_foreign(self):
         d = self.frequencies
@@ -77,3 +78,22 @@ class TestIntegrity():
             except Exception:
                 continue
         assert len(data) > 1
+
+    def test_distinct_stored_countries(self):
+        d = self.frequencies
+        countries = set()
+        for _, v in d.items():
+            for k, w in v.items():
+                countries.add(k)
+        assert len(countries) == 169
+
+    def test_distinct_stored_countries_popularity(self):
+        d = self.frequencies
+        countries = dict()
+        for _, v in d.items():
+            for k, w in v.items():
+                if k not in countries:
+                    countries[k] = 1
+                else:
+                    countries[k] += 1
+        assert len(countries) == 169
