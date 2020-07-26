@@ -2,11 +2,12 @@ import random
 import sys
 import time
 
-from lib import api, extract, subset
+from lib import api, extract, stats, subset
 
 s = subset.Subset()
 w = api.WikiAPI()
 e = extract.Extract()
+st = stats.Stats()
 
 # Get urls -> python3 main.py urls 0.85
 if len(sys.argv) == 3 and sys.argv[1] == 'urls':
@@ -42,3 +43,7 @@ if sys.argv[1] == 'show':
     d = e.open_frequencies()
     for k, v in d.items():
         print(' '.join([k, str(v)]))
+
+# Process stats -> python3 main.py stats
+if sys.argv[1] == 'stats':
+    st.create_file()
