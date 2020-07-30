@@ -38,7 +38,7 @@ class Stats():
                 d[cluster] += cnt
             else:
                 d[cluster] = cnt
-         return d
+        return d
 
     def dominant_cluster(self, clusters):
         try:

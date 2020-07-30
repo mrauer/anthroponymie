@@ -2,12 +2,12 @@ import random
 import sys
 import time
 
-from lib import api, extract, stats, subset
+from lib import api, extract, stat, subset
 
 s = subset.Subset()
 w = api.WikiAPI()
 e = extract.Extract()
-st = stats.Stats()
+st = stat.Stats()
 
 # Get urls -> python3 main.py urls 0.85
 if len(sys.argv) == 3 and sys.argv[1] == 'urls':

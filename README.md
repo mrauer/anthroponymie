@@ -6,7 +6,7 @@ Lorem Ipsum
 
 ## Méthodologie
 
-* La première étape consiste au téléchargement et à la décompression du “fichier des prénoms” de l’Insee https://www.insee.fr/fr/statistiques/2540004 (nat2018.csv)
+* La première étape consiste au téléchargement et à la décompression du “fichier des prénoms” de l’Insee [Insee](https://www.insee.fr/fr/statistiques/2540004) (nat2018.csv)
 
 ## Information
 
@@ -27,7 +27,7 @@ Lorem Ipsum
 
 ## Clusters culturels
 
-* https://growthorientedsustainableentrepreneurship.files.wordpress.com/2016/07/gl-cultural-clusters-methodology-and-findings.pdf
+* [Clusters](https://growthorientedsustainableentrepreneurship.files.wordpress.com/2016/07/gl-cultural-clusters-methodology-and-findings.pdf)
 
 ### Ajouts manuels
 * Tunisia TN -> `ARAB`

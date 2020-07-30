@@ -1,11 +1,11 @@
-from lib import extract, stats
+from lib import extract, stat
 
 
 class TestStats():
 
     def setup(self):
         e = extract.Extract()
-        self.s = stats.Stats()
+        self.s = stat.Stats()
         self.frequencies = e.open_frequencies()
         self.CLUSTERS = self.s.CLUSTERS
         self.POPULAR_LIMIT = 75
