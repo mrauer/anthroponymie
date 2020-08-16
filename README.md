@@ -25,10 +25,6 @@ Lorem Ipsum
 * Store and zip?
 * 85% coverage to start (780 names)
 
-* 70560072
-* 85119428
-* 82.89%
-
 ## Clusters culturels
 
 * [Clusters](https://growthorientedsustainableentrepreneurship.files.wordpress.com/2016/07/gl-cultural-clusters-methodology-and-findings.pdf)

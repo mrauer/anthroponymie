@@ -6,6 +6,3 @@ run:
 
 test:
 	pytest -vv tests/
-
-plot:
-	R < lib/plot.R  --vanilla

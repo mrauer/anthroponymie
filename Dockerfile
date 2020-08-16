@@ -5,8 +5,7 @@ RUN apk add --no-cache python3 \
                        g++ \
                        libxml2-dev \
                        libxslt-dev \
-                       make \
-                       R
+                       make
 
 WORKDIR /usr/src/app
 
