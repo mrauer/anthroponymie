@@ -47,3 +47,24 @@ if sys.argv[1] == 'show':
 # Process stats -> python3 main.py stats
 if sys.argv[1] == 'stats':
     st.create_file()
+
+# Aggregate data
+if sys.argv[1] == 'agg':
+    d = dict()
+    total = 0
+    with open('data/nat2018_labeled.csv', 'r') as f:
+        next(f)
+        for line in f.readlines():
+            data = line.split(';')
+            key = '\t'.join([data[4].replace('\n', ''), data[2]])
+            if data[2] != 'XXXX':
+                if key in d:
+                    d[key] += int(data[3])
+                else:
+                    d[key] = int(data[3])
+                total += int(data[3])
+    print('Total population aggregated {}'.format(total))
+
+    with open('data/nat2018_agg.csv', 'w') as f:
+        for k, v in d.items():
+            f.write('\t'.join([k, str(v)]) + '\n')
