@@ -56,8 +56,8 @@ if sys.argv[1] == 'agg':
         next(f)
         for line in f.readlines():
             data = line.split(';')
-            key = ';'.join([data[4].replace('\n', ''), data[2]])
-            if data[2] != 'XXXX' and data[4].replace('\n', '') != 'UNKNOWN':
+            key = '\t'.join([data[4].replace('\n', ''), data[2]])
+            if data[2] != 'XXXX':
                 if key in d:
                     d[key] += int(data[3])
                 else:
@@ -67,4 +67,4 @@ if sys.argv[1] == 'agg':
 
     with open('data/nat2018_agg.csv', 'w') as f:
         for k, v in d.items():
-            f.write(';'.join([k, str(v)]) + '\n')
+            f.write('\t'.join([k, str(v)]) + '\n')
