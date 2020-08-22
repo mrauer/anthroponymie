@@ -8,7 +8,7 @@ L’objectif d'anthroponymie est de mesurer l'évolution culturelle d’un pays 
 
 L’Insee (Institut national de la statistique et des études économiques) met à disposition de tous un fichier nommé [Fichier des prénoms](https://www.insee.fr/fr/statistiques/2540004). Celui-ci couvre l'intégralité des prénoms donnés aux nouveaux français entre 1900 et 2018 . Nous disposons par année du prénom, du sexe et du nombre de fois celui-ci a été donné.
 
-L'idée initiale est d’ajouter deux dimensions supplémentaires "Pays d’origine" ainsi qu’un groupe que nous appellerons tout au long de l'étude "Cluster culturel". Par exemple, en tant que personne, nous pouvons pas facilement déterminer que "Jean" est un prénom français, et "Matteo" un prénom italien, les deux étant des prénoms culturellement proches (latin). Néanmoins, est-il possible pour une machine de déterminer l’origine d’un prénom?
+L'idée initiale est d’ajouter deux dimensions supplémentaires "Pays d’origine" ainsi qu’un groupe que nous appellerons tout au long de l'étude "Cluster culturel". Par exemple, en tant que personne, nous pouvons facilement déterminer que "Jean" est un prénom français, et "Matteo" un prénom italien, les deux étant des prénoms culturellement proches (latin). Néanmoins, est-il possible pour une machine de déterminer l’origine d’un prénom?
 
 Pour obtenir l’origine d’un prénom, nous avons fait appel à Wikipedia. En collectant tous les personnages illustres portant le même prénom, et en utilisant le pays de naissance de ceux-ci comme un marqueur, nous avons obtenu des données semblant refléter la réalité (pour la machine, il y a une majorité de "Jean" illustres né en France, et une majorité de "Matteo" illustres né en Italie).
 
