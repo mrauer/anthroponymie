@@ -2,7 +2,7 @@
 
 ## Introduction
 
-L’objectif d'anthroponymie est de mesurer l'évolution culturelle d’un paysà travers l’origine des prénoms donnés lors des naissances. Il est relativement difficile de déterminer l’origine d’un prénom avec certitude mais nous avons créé une méthodologie qui semble porter ses fruits et donne un aperçu de la situation d'évolution récente.
+L’objectif d'anthroponymie est de mesurer l'évolution culturelle d’un pays à travers l’origine des prénoms donnés lors des naissances. Il est relativement difficile de déterminer l’origine d’un prénom avec certitude mais nous avons créé une méthodologie qui semble porter ses fruits et donne un aperçu de la situation d'évolution récente.
 
 ## Méthodologie
 
@@ -20,10 +20,10 @@ Voici les résultats de l'étude en utilisant 780 prénoms. Nous pouvons observe
 
 ## Clusters culturels
 
-Comme vous pouvez aisément l’imaginer, il existe certain prénoms dont l’origine est difficile à déterminer. Prenez par exemple un nom anglais tel que “Brandon”. Celui-ci sera répartie dans un nombre important de pays. Néammoins, ces pays on en général ces pays ont en commun une proximité culturelle (Canada, Royaume-Uni, Etats-Unis, etc…). On peut imaginer, que la culture Mexicaine est plus proche de la culture Colombienne que de la culture Chinoise. Il se trouve qu’il y a eu quelques études a ce sujet, et nous avons utilisé les données du lien suivant pour créer nos groupes culturels et avoir un meilleur aperçu de l'évolution de la culture du pays. [Clusters Culturels](https://growthorientedsustainableentrepreneurship.files.wordpress.com/2016/07/gl-cultural-clusters-methodology-and-findings.pdf)
+Comme vous pouvez aisément l’imaginer, il existe certain prénoms dont l’origine est difficile à déterminer. Prenez par exemple un nom anglais tel que “Brandon”. Celui-ci sera répartie dans un nombre important de pays. Néammoins, ces pays ont en général en commun une proximité culturelle (Canada, Royaume-Uni, Etats-Unis, etc…). On peut imaginer, que la culture Mexicaine est plus proche de la culture Colombienne que de la culture Chinoise. Il se trouve qu’il y a eu quelques études à ce sujet, et nous avons utilisé les données du lien suivant pour créer nos groupes culturels et avoir un meilleur aperçu de l'évolution de la culture du pays. [Clusters Culturels](https://growthorientedsustainableentrepreneurship.files.wordpress.com/2016/07/gl-cultural-clusters-methodology-and-findings.pdf)
 
 ### Ajouts manuels
-Etant donné l’existence de pays fort représenté dans les données, mais non classifiés en tant que cluster culturel, nous avons grossièrement ajouté certain pays manuellement. La classification suivante n’engage que l’auteur:
+Etant donné l’existence de pays fort représentés dans les données, mais non classifiés en tant que cluster culturel, nous avons grossièrement ajouté certains pays manuellement. La classification suivante n’engage que l’auteur:
 
 * Algeria DZ -> `ARAB`
 * Belgium BE -> `LATIN-EUROPE`
@@ -37,7 +37,7 @@ Etant donné l’existence de pays fort représenté dans les données, mais non
 
 Le fichier initial contient 33,484 prénoms distincts.
 
-Cette version couvre 85% de la population (780 prénoms), soit 72125408 de personnes sur 85139389 (0.8471).
+Cette version d'anthroponymie couvre 85% de la population (780 prénoms), soit 72.125.408 de personnes sur 85.139.389 (0.8471).
 
 Pour démarrer le projet, lancez la commande:
 
@@ -48,10 +48,10 @@ make run
 Voici les commandes disponibles:
 
 ```sh
-python3 main.py cut 0.85		(créer un sous-groupe du fichier initial)
-python3 main.py urls 0.85		(collecte des liens Wikipedia par prénom)
-python3 main.py countries		(ajoute la dimension pays)
-python3 main.py show 			(vue des données collectées)
-python3 main.py stats 			(ajout des clusters culturels)
-python3 main.py agg     		(créer le fichier à la base de la visualisation)
+python3 main.py cut 0.85           (créer un sous-groupe du fichier initial)
+python3 main.py urls 0.85          (collecte des liens Wikipedia par prénom)
+python3 main.py countries          (ajoute la dimension pays)
+python3 main.py show               (vue des données collectées)
+python3 main.py stats              (ajout des clusters culturels)
+python3 main.py agg                (créer le fichier à la base de la visualisation)
 ```
