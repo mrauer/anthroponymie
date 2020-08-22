@@ -9,6 +9,19 @@ w = api.WikiAPI()
 e = extract.Extract()
 st = stat.Stats()
 
+
+# Create subset by cutoff -> python3 main.py cut 0.85
+if len(sys.argv) == 3 and sys.argv[1] == 'cut':
+    cutoff = sys.argv[2]
+    d = s.file_to_dict()
+    print('{} distinct names found'.format(len(d)))
+    d = s.sort_dict(d)
+    print('Total population is {}'.format(s.get_total_names(d)))
+    d = s.cutoff_dict(d, cutoff)
+    print('{} distinct names in subset'.format(len(d)))
+    print('Total population in subset is {}'.format(s.get_total_names(d)))
+    s.store_output(d, cutoff)
+
 # Get urls -> python3 main.py urls 0.85
 if len(sys.argv) == 3 and sys.argv[1] == 'urls':
     cutoff = sys.argv[2]
