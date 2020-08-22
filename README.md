@@ -37,7 +37,7 @@ Etant donné l’existence de pays fort représenté dans les données, mais non
 
 Le fichier initial contient 33,484 prénoms distincts.
 
-Cette version couvre 85% de la population (780 prénoms).
+Cette version couvre 85% de la population (780 prénoms), soit 72125408 de personnes sur 85139389 (0.8471).
 
 Pour démarrer le projet, lancez la commande:
 
@@ -48,9 +48,10 @@ make run
 Voici les commandes disponibles:
 
 ```sh
+python3 main.py cut 0.85		(créer un sous-groupe du fichier initial)
 python3 main.py urls 0.85		(collecte des liens Wikipedia par prénom)
 python3 main.py countries		(ajoute la dimension pays)
 python3 main.py show 			(vue des données collectées)
 python3 main.py stats 			(ajout des clusters culturels)
-python3 main.py agg				(créer le fichier a la base de la visualisation)
+python3 main.py agg     		(créer le fichier à la base de la visualisation)
 ```
