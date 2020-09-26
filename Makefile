@@ -6,3 +6,6 @@ run:
 
 test:
 	pytest -vv tests/
+
+chart:
+	R --vanilla < lib/visu.r
