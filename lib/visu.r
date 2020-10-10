@@ -2,9 +2,9 @@ library("ggplot2")
 
 options(warn=-1)
 
-jpeg('data/chart.jpg', width = 465, height = 225, units='mm', res = 600, pointsize=16)
+jpeg('/usr/src/app/data/chart.jpg', width = 465, height = 225, units='mm', res = 600, pointsize=16)
 
-data <- read.table("data/nat2018_labeled.csv", header=TRUE, sep=";")
+data <- read.table("/usr/src/app/data/nat2018_labeled.csv", header=TRUE, sep=";")
 
 data <- subset(data, data$annais!="XXXX" 
     & data$annais!=1935
@@ -52,7 +52,6 @@ cluster <- data$cluster
 
 data <- data.frame(year, count, cluster)
 
-#ggplot(data, aes(fill=cluster, y=count, x=year)) + 
 ggplot(data[order(cluster, decreasing = T),], aes(fill=cluster, y=count, x=year)) + 
     geom_bar(position="fill", stat="identity", width=1) + 
     ggtitle("Proportion des naissances en France par Cluster Culturel") +

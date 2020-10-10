@@ -4,4 +4,4 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN ["sh", "./lib/chart.sh"]
+CMD ["sh", "./lib/chart.sh"]
