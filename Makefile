@@ -6,3 +6,6 @@ run:
 
 test:
 	pytest -vv tests/
+
+chart:
+	docker build -t anthroponymie_r:latest -f Dockerfile_R . && docker run -it --rm -v ${CURDIR}:/usr/src/app anthroponymie_r:latest
