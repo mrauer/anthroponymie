@@ -44,12 +44,16 @@ data <- subset(data, data$annais!="XXXX"
     & data$annais!=1901
     & data$annais!=1900)
 
-year <- data$annais
-cluster <- data$cluster
-count <- data$nombre
-data <- data.frame(data$annais, data$nombre, data$cluster)
+data <- na.omit(data)
 
-ggplot(data, aes(fill=cluster, y=count, x=year)) + 
+year <- data$annais
+count <- data$nombre
+cluster <- data$cluster
+
+data <- data.frame(year, count, cluster)
+
+#ggplot(data, aes(fill=cluster, y=count, x=year)) + 
+ggplot(data[order(cluster, decreasing = T),], aes(fill=cluster, y=count, x=year)) + 
     geom_bar(position="fill", stat="identity", width=1) + 
     ggtitle("Proportion des naissances en France par Cluster Culturel") +
     scale_y_continuous(labels = scales::percent) +
