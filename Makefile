@@ -8,4 +8,4 @@ test:
 	pytest -vv tests/
 
 chart:
-	R --vanilla < lib/visu.r
+	docker build -t anthroponymie_r:latest -f Dockerfile_R . && docker run -it --rm -v ${CURDIR}:/usr/src/app anthroponymie_r:latest

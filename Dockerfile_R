@@ -1,0 +1,9 @@
+FROM joseespinosa/docker-r-ggplot2
+
+WORKDIR /usr/src/app
+
+COPY . .
+
+#RUN ["sh", "./lib/chart.sh"]
+
+CMD ["bash"]
