@@ -62,7 +62,7 @@ Le projet est sous license MIT, il vous est donc possible de contribuer.
 
 Voici les commandes nécessaires pour lancer une machine virtuelle (Il vous faut au préalable Docker):
 
-```
+```sh
 make build (contruction de l'image)
 make run (utilisation de l'image)
 ```
