@@ -64,5 +64,5 @@ Voici les commandes nécessaires pour lancer une machine virtuelle (Il vous faut
 
 ```
 make build (contruction de l'image)
-make dev (utilisation de l'image)
+make run (utilisation de l'image)
 ```
