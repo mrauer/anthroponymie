@@ -55,3 +55,14 @@ python3 main.py show               (vue des données collectées)
 python3 main.py stats              (ajout des clusters culturels)
 python3 main.py agg                (créer le fichier à la base de la visualisation)
 ```
+
+## Contribution
+
+Le projet est sous license MIT, il vous est donc possible de contribuer.
+
+Voici les commandes nécessaires pour lancer une machine virtuelle (Il vous faut au préalable Docker):
+
+```sh
+make build (contruction de l'image)
+make run (utilisation de l'image)
+```
