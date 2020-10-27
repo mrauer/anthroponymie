@@ -48,12 +48,12 @@ make run
 Voici les commandes disponibles:
 
 ```sh
-python3 main.py cut 0.85           (créer un sous-groupe du fichier initial)
-python3 main.py urls 0.85          (collecte des liens Wikipedia par prénom)
-python3 main.py countries          (ajoute la dimension pays)
-python3 main.py show               (vue des données collectées)
-python3 main.py stats              (ajout des clusters culturels)
-python3 main.py agg                (créer le fichier à la base de la visualisation)
+make cut cutoff=0.85    (créer un sous-groupe du fichier initial)
+make urls cutoff=0.85   (collecte des liens Wikipedia par prénom)
+make countries          (ajoute la dimension pays)
+make show               (vue des données collectées)
+make stats              (ajout des clusters culturels)
+make agg                (créer le fichier à la base de la visualisation)
 ```
 
 ## Contribution
