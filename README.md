@@ -56,6 +56,21 @@ make stats              (ajout des clusters culturels)
 make agg                (créer le fichier à la base de la visualisation)
 ```
 
+## Configuration
+
+Si vous souhaitez collecter des données additionnelles ou recommencer le processus de A à Z (car les sources changent effectivement en permanence) il vous faut au préalable un fichier de configuration à la base du project.
+
+Celui-ci doit se nommer `.env`, et voici son contenu:
+
+```sh
+AWS_ACCESS_KEY_ID=AKIAU***************
+AWS_SECRET_ACCESS_KEY=fkmHxhFg8ob*****************************
+BUCKET_NAME=anthroponymie
+PERCENT=1
+```
+
+Nous utilisons Amazon S3 pour le stockage des fichiers, mais toute innovation est la bienvenue.
+
 ## Contribution
 
 Le projet est sous license MIT, il vous est donc possible de contribuer.
