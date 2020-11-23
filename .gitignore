@@ -1,5 +1,8 @@
 data/nat2018.csv
 data/countries.csv
+data/nat2018.csv
+data/*.p
 .idea
 __pycache__
 .DS_Store
+.env

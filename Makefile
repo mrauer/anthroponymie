@@ -2,7 +2,7 @@ build:
 	docker build -t anthroponymie:latest .
 
 run:
-	docker build -t anthroponymie:latest . && docker run -it --rm -v ${CURDIR}:/usr/src/app anthroponymie:latest
+	docker build -t anthroponymie:latest . && docker run --env-file .env -it --rm -v ${CURDIR}:/usr/src/app anthroponymie:latest
 
 test:
 	pytest -vv tests/
@@ -27,3 +27,9 @@ stats:
 
 agg:
 	python3 main.py agg
+
+load:
+	sh lib/load.sh
+
+save:
+	sh lib/save.sh
