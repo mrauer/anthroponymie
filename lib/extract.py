@@ -290,7 +290,7 @@ class Extract():
         for url in urls:
             try:
                 if url.find('https://www.wikidata.org') != -1:
-                    ret = urlparse(url).path.split('/')[2]
+                    ret = urlparse(url).path.split('/')[3]
                     return ret
             except Exception:
                 continue
