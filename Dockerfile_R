@@ -1,4 +1,4 @@
-FROM joseespinosa/docker-r-ggplot2
+FROM mrauer/r-ggplot2:1.0.0
 
 WORKDIR /usr/src/app
 
