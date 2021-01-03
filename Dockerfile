@@ -10,7 +10,7 @@ RUN apk add --no-cache python3 \
 WORKDIR /usr/src/app
 
 COPY requirements.txt .
-RUN pip3 install --upgrade pip==20.2.4 && \
+RUN pip3 install --upgrade pip==20.3.3 && \
     pip3 install -r requirements.txt
 
 RUN pip3 install awscli

@@ -8,17 +8,20 @@ class Stats():
     def __init__(self):
 
         self.CLUSTERS = {
-          'ANGLO': ['GB', 'AU', 'ZA', 'CA', 'NZ', 'IE', 'US'],
-          'LATIN-EUROPE': ['IL', 'IT', 'PT', 'ES', 'FR', 'CH', 'BE'],
+          'ANGLO': ['GB', 'AU', 'ZA', 'CA', 'NZ', 'IE', 'US', 'SA'],
+          'LATIN-EUROPE': ['IL', 'IT', 'PT', 'ES', 'FR', 'CH', 'BE', 'RO'],
           'NORDIC-EUROPE': ['FI', 'SE', 'DK', 'NO'],
           'GERMANIC-EUROPE': ['AT', 'NL', 'DE'],
-          'EASTERN-EUROPE': ['HU', 'RU', 'KZ', 'AL', 'PL', 'GR', 'SI', 'GE'],
+          'EASTERN-EUROPE': ['HU', 'RU', 'KZ', 'AL', 'PL', 'GR', 'SI',
+                             'GE', 'CZ', 'UA', 'BG', 'HR', 'RS', 'BY', 'SK', 'EE'],
           'LATIN-AMERICA': ['CR', 'VE', 'EC', 'MX', 'SV',
-                            'CO', 'GT', 'BO', 'BR', 'AR'],
-          'SUB-SAHARA AFRICA': ['NA', 'ZM', 'ZW', 'ZA', 'NG', 'CM', 'CI'],
-          'ARAB': ['QA', 'MA', 'TR', 'EG', 'KW', 'TN', 'DZ', 'LB'],
+                            'CO', 'GT', 'BO', 'BR', 'AR', 'CL', 'CU', 'UY', 'PE'],
+          'SUB-SAHARA AFRICA': ['NA', 'ZM', 'ZW', 'ZA', 'NG', 'CM',
+                                'CI', 'SN', 'CD', 'KE'],
+          'ARAB': ['QA', 'MA', 'TR', 'EG', 'KW', 'TN', 'DZ', 'LB', 'ML', 'SY',
+                   'BF', 'IQ', 'PK', 'GN'],
           'SOUTHERN-ASIA': ['IN', 'ID', 'PH', 'MY', 'TH', 'IR'],
-          'CONFUCIAN-ASIA': ['TW', 'SG', 'HK', 'KR', 'CN', 'JP'],
+          'CONFUCIAN-ASIA': ['TW', 'SG', 'HK', 'KR', 'CN', 'JP', 'VN'],
         }
         self.filename = '/usr/src/app/data/nat2018.csv'
         self.outputfile = '/usr/src/app/data/nat2018_labeled.csv'

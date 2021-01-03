@@ -11,7 +11,8 @@ class TestIntegrity():
         s = subset.Subset()
         w = api.WikiAPI()
         e = extract.Extract()
-        self.names = s.open_names('0.85')
+        #self.names = s.open_names('0.85')
+        self.names = s.open_names('1')
         self.urls = w.open_urls()
         self.frequencies = e.open_frequencies()
 

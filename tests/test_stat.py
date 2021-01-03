@@ -8,7 +8,7 @@ class TestStats():
         self.s = stat.Stats()
         self.frequencies = e.open_frequencies()
         self.CLUSTERS = self.s.CLUSTERS
-        self.POPULAR_LIMIT = 75
+        self.POPULAR_LIMIT = 150
 
     def test_popular_countries(self):
         _d = dict()
@@ -20,6 +20,7 @@ class TestStats():
                     _d[country] = cnt
 
         d = dict((k, v) for k, v in _d.items() if v >= self.POPULAR_LIMIT)
+        assert d == 1
         assert len(_d) == 169
         assert len(d) == 29
 
@@ -35,14 +36,39 @@ class TestStats():
         d = dict((k, v) for k, v in d.items() if v >= self.POPULAR_LIMIT)
         all_countries = set(d.keys())
 
+        assert d == 1
+
         # Countries in clusters
         countries = set()
         for v in self.CLUSTERS.values():
             for c in v:
                 countries.add(c)
 
+        assert all_countries == 1
         assert len(all_countries.difference(countries)) == 0
         # assert all_countries.difference(countries) == 1
+
+    def test_popular_countries_not_in_clusters_cnt(self):
+        # Popular countries
+        d = dict()
+        for k, v in self.frequencies.items():
+            for country, cnt in v.items():
+                if country in d:
+                    d[country] += cnt
+                else:
+                    d[country] = cnt
+        d = dict((k, v) for k, v in d.items() if v >= self.POPULAR_LIMIT)
+
+        
+        ret = {}
+        clusters_countries = [j for i in self.CLUSTERS.values() for j in i]
+        for k, v in d.items():
+            if k not in clusters_countries:
+                ret[k] = v
+
+        assert ret == 1
+
+
 
     def test_get_cluster(self):
         assert self.s.get_cluster('FR') == 'LATIN-EUROPE'

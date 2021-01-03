@@ -22,22 +22,11 @@ Voici les résultats de l'étude en utilisant 780 prénoms. Nous pouvons observe
 
 Comme vous pouvez aisément l’imaginer, il existe certain prénoms dont l’origine est difficile à déterminer. Prenez par exemple un nom anglais tel que “Brandon”. Celui-ci sera répartie dans un nombre important de pays. Néanmoins, ces pays ont en général en commun une proximité culturelle (Canada, Royaume-Uni, Etats-Unis, etc…). On peut imaginer, que la culture mexicaine est plus proche de la culture colombienne que de la culture chinoise. Il se trouve qu’il y a eu quelques études à ce sujet, et nous avons utilisé les données du lien suivant pour créer nos groupes culturels et avoir un meilleur aperçu de l'évolution de la culture du pays. [Clusters Culturels](https://growthorientedsustainableentrepreneurship.files.wordpress.com/2016/07/gl-cultural-clusters-methodology-and-findings.pdf)
 
-### Ajouts manuels
-Etant donné l’existence de pays fort représentés dans les données, mais non classifiés en tant que cluster culturel, nous avons grossièrement ajouté certains pays manuellement. La classification suivante n’engage que l’auteur:
-
-* Algeria DZ -> `ARAB`
-* Belgium BE -> `LATIN-EUROPE`
-* Cameroon CM -> `SUB-SAHARA AFRICA`
-* Côte d'Ivoire CI -> `SUB-SAHARA AFRICA`
-* Lebanon LB -> `ARAB`
-* Norway NO -> `NORDIC-EUROPE`
-* Tunisia TN -> `ARAB`
-
 ## Collection des données
 
-Le fichier initial contient 33,484 prénoms distincts.
+Le fichier initial contient 33.484 prénoms distincts.
 
-Cette version d'anthroponymie couvre 85% de la population (780 prénoms), soit 72.125.408 de personnes sur 85.139.389 (0.8471).
+Cette version d'anthroponymie couvre 100% de la population (35.606 prénoms avec doublons H/F), soit 83.564.357 de personnes.
 
 Pour démarrer le projet, lancez la commande:
 
@@ -81,3 +70,38 @@ Voici les commandes nécessaires pour lancer une machine virtuelle (Il vous faut
 make build (contruction de l'image)
 make run (utilisation de l'image)
 ```
+
+### Ajouts manuels
+Etant donné l’existence de pays fort représentés dans les données, mais non classifiés en tant que cluster culturel, nous avons grossièrement ajouté certains pays manuellement. La classification suivante n’engage que l’auteur:
+
+* Algeria DZ -> `ARAB`
+* Belgium BE -> `LATIN-EUROPE`
+* Cameroon CM -> `SUB-SAHARA AFRICA`
+* Côte d'Ivoire CI -> `SUB-SAHARA AFRICA`
+* Lebanon LB -> `ARAB`
+* Norway NO -> `NORDIC-EUROPE`
+* Tunisia TN -> `ARAB`
+* Romania RO -> `LATIN-EUROPE`
+* Czechia CZ -> `EASTERN-EUROPE`
+* Ukraine UA -> `EASTERN-EUROPE`
+* Chile CL -> `LATIN-AMERICA`
+* Senegal SN -> `SUB-SAHARA AFRICA`
+* Bulgaria BG -> `EASTERN-EUROPE`
+* Croatia HR -> `EASTERN-EUROPE`
+* Serbia RS ->  `EASTERN-EUROPE`
+* Cuba CU -> `LATIN-AMERICA`
+* Mali ML -> `ARAB`
+* Syria SY ->  `ARAB`
+* Burkina Faso BF -> `ARAB`
+* Irak IQ -> `ARAB`
+* Pakistan PK -> `ARAB`
+* Congo CD -> `SUB-SAHARA AFRICA`
+* Vietnam VN -> `CONFUCIAN-ASIA`
+* Guinea GN -> `ARAB`
+* Kenya KE -> `SUB-SAHARA AFRICA`
+* Belarus BY -> `EASTERN-EUROPE`
+* Slovakia SK -> `EASTERN-EUROPE`
+* Uruguay UY -> `LATIN-AMERICA`
+* Peru PE -> `LATIN-AMERICA`
+* South Africa SA -> `ANGLO`
+* Estonia EE -> `EASTERN-EUROPE`
