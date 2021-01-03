@@ -17,6 +17,9 @@ name: Lint Code Base
 on:
   push:
     branches-ignore: [master]
+    # Remove the line above to run when pushing to master
+  pull_request:
+    branches: [master]
 
 ###############
 # Set the Job #
@@ -26,7 +29,7 @@ jobs:
     # Name the Job
     name: Lint Code Base
     # Set the agent to run on
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     ##################
     # Load all steps #
@@ -34,25 +37,22 @@ jobs:
     steps:
       ##########################
       # Checkout the code base #
+      ##########################
       - name: Checkout Code
         uses: actions/checkout@v2
-      - name: Install packages
-        run: |
-          sudo apt-get update && sudo apt-get install python3-venv python3 python3-pip python3-setuptools
-      - name: Install dependencies
-        run: |
-          python3 -m venv .venv
-          .venv/bin/pip install -r requirements.txt
-      - name: Move the dependencies
-        run: mv .venv /home/runner/work/_temp/_github_workflow
+        with:
+          # Full git history is needed to get a proper list of changed files within `super-linter`
+          fetch-depth: 0
+
       ################################
       # Run Linter against code base #
       ################################
       - name: Lint Code Base
-        uses: docker://github/super-linter:v3.3.2
+        uses: github/super-linter@v3
         env:
           VALIDATE_ALL_CODEBASE: false
-          PYTHONPATH: "/github/workspace/:\
-            /github/workflow/.venv/lib/python3.8/site-packages"
-
-...
+          VALIDATE_DOCKERFILE_HADOLINT: true
+          VALIDATE_PYTHON_FLAKE8: true
+          VALIDATE_PYTHON_ISORT: true
+          DEFAULT_BRANCH: master
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

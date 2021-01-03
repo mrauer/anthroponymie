@@ -44,6 +44,23 @@ class TestStats():
         assert len(all_countries.difference(countries)) == 0
         # assert all_countries.difference(countries) == 1
 
+    def test_popular_countries_not_in_clusters_cnt(self):
+        # Popular countries
+        d, ret = {}, {}
+        for k, v in self.frequencies.items():
+            for country, cnt in v.items():
+                if country in d:
+                    d[country] += cnt
+                else:
+                    d[country] = cnt
+        d = dict((k, v) for k, v in d.items() if v >= self.POPULAR_LIMIT)
+
+        clusters_countries = [j for i in self.CLUSTERS.values() for j in i]
+        for k, v in d.items():
+            if k not in clusters_countries:
+                ret[k] = v
+        assert ret == 1
+
     def test_get_cluster(self):
         assert self.s.get_cluster('FR') == 'LATIN-EUROPE'
         assert self.s.get_cluster('MX') == 'LATIN-AMERICA'

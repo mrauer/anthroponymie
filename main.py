@@ -33,7 +33,7 @@ if len(sys.argv) == 3 and sys.argv[1] == 'urls':
             print('Processing {}'.format(query))
             data = w.call_api(query)
             w.save_record(urls, query, data)
-            time.sleep(random.randint(20, 55))
+            time.sleep(random.randint(10, 35))
 
 # Process countries -> python3 main.py countries
 if sys.argv[1] == 'countries':
@@ -49,7 +49,8 @@ if sys.argv[1] == 'countries':
 
         print('Storing {} {}'.format(k, freq))
         e.save_record(d, k, freq)
-        time.sleep(random.randint(20, 55))
+        if len(freq) > 0:
+            time.sleep(random.randint(20, 55))
 
 # Show data -> python3 main.py show
 if sys.argv[1] == 'show':
