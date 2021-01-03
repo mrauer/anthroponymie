@@ -1,7 +1,6 @@
 import operator
 
 import pytest
-
 from lib import api, extract, subset
 
 
