@@ -45,7 +45,7 @@ class Stats():
 
     def dominant_cluster(self, clusters):
         try:
-            dominant =  max(clusters.items(), key=operator.itemgetter(1))[0]
+            dominant = max(clusters.items(), key=operator.itemgetter(1))[0]
         except Exception:
             dominant = 'UNKNOWN'
         if dominant is None:
