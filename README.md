@@ -14,7 +14,7 @@ Pour obtenir l’origine d’un prénom, nous avons fait appel à Wikipedia. En 
 
 ## Visualisation
 
-Voici les résultats de l'étude en utilisant 780 prénoms. Nous pouvons observer, qu'à partir des années 1960, la diversité des prénoms en France a fortement augmenté. La part des clusters "UNKNOWN" (non classifiés) et de plus de 50% en 2015, ce qui signifie qu’il est nécessaire de catégoriser plus de prénoms pour minimiser cet effet. Nous observons que plus de 10% des prénoms en France dans les années 20xx appartiennent au groupe culturel "ANGLO":
+Voici les résultats de l'étude en utilisant l'integralité des prénoms. Nous pouvons observer, qu'à partir des années 1960, la diversité des prénoms en France a fortement augmenté. La part des clusters "UNKNOWN" (non classifiés) et de plus de 20% en 2015, ce qui signifie qu’il est nécessaire de catégoriser plus de prénoms pour minimiser cet effet. Nous observons que plus de 10% des prénoms en France dans les années 20xx appartiennent au groupe culturel "ANGLO". Le groupe "LATIN-EUROPE" est passé de 762.455 naissances en 1955 à 313.181 en 2018:
 
 ![Proportion des naissances en France par Cluster Culturel](/data/chart.jpg "Proportion des naissances en France par Cluster Culturel")
 
